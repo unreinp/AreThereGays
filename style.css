@@ -1,0 +1,49 @@
+.rainbowForm{
+	margin: auto;
+	text-align: center;
+	width: 70%;
+	border: 5px solid transparent;
+	border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+	border-image-slice: 1;
+	padding: 10px;
+}
+h2{
+	color: #FFFFFF;
+}
+.flexContainer{
+	
+}
+.results{
+	text-align: center;
+	padding: 20px;
+	border-style: dotted;
+}
+.poll{
+	
+}
+.title{
+	font-size:
+}
+body {
+  background-color: #33b08b;
+}
+.button{
+	background-color:#33cc8b ;
+	border: none;
+	color: dark green;
+	padding: 16px 16px;
+	text-align: center;
+	display: inline-block;
+	font-size: 18px;
+	
+}
+
+.rainbow-box {
+  background-color: #302244;
+  border: 5px solid transparent;
+  
+  border-image-slice: 1;
+  height: 50px;
+  margin: 20px auto;
+  width: 200px;
+}

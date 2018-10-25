@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta creator = "Peter Unrein">
+<link rel="stylesheet" href = "style.css" type = "text/css">
+</head>
+<body>
+
+<form class = "rainbowForm">
+<h2>Search a Movie Title:</h2><br> <input type="text" id=TitleSubmission>
+<input id=submitButton type=button value="Are There Gays?" onClick = "getTitle()">
+</form>
+<div class= flexContainer>
+	<div class = results>
+		<div id="poster"></div>
+		<div id="title"></div>
+		<div id="year"></div>
+	</div>
+	<div class = poll>
+		<button class = yesButton> Yes!</button>
+		<button class = noButton> No!</button>
+	</div>
+</div>
+<script>
+document.getElementById("TitleSubmission")
+	.addEventListener("keyup", function(event) {
+		console.log('event listener');
+		event.preventDefault();
+		if (event.which == 13){
+			debugger;
+			document.getElementById("submitButton").click();
+		}
+	});
+function testMovieRequest(title){
+	console.log("script");
+	var ajax = new XMLHttpRequest();
+	var url = "http://www.omdbapi.com/?t=" +title +"&apikey=f0629b6a&";
+	debugger;
+	ajax.onreadystatechange = function(){
+	
+		console.log(this.readyState);
+		if (this.readyState == 4 && this.status == 200){
+			console.log(this.responseText);
+			var myArr = JSON.parse(this.responseText);
+			omdbRead(myArr);
+			console.log(myArr);
+	}
+};
+console.log(ajax.readyState);
+ajax.open("GET", url, true);
+//ajax.setRequestHeader("Content-Type", "application/json");
+ajax.send();
+console.log(ajax.readyState);
+
+}
+function getTitle (){
+	debugger;
+	var tit = document.getElementById("TitleSubmission").value;
+	console.log(tit);	
+	console.log(tit.length);
+	testMovieRequest(tit);
+	
+}
+function omdbRead(arrSON) {
+	var out = "";
+	document.getElementById("title").innerHTML = arrSON.Title;
+	document.getElementById("year").innerHTML = arrSON.Year;
+	document.getElementById("poster").innerHTML = "<img src='img/bladeRunner2049.jpg'>"
+}
+
+</script>
+
+
+</body>
+</html>
